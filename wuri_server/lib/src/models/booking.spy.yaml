@@ -1,0 +1,13 @@
+class: Booking
+table: booking
+fields:
+  placeId: int, relation(parent=space)
+  guestId: int, relation(parent=app_user)
+  checkIn: DateTime
+  checkOut: DateTime
+  guests: int
+  totalPrice: int
+  currency: String
+  status: BookingStatus
+  paymentMethod: PaymentMethod
+  createdAt: DateTime

@@ -1,0 +1,6 @@
+enum: SpaceType
+serialized: byName
+values:
+  - hotel
+  - stay
+  - workspace

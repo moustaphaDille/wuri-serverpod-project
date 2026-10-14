@@ -1,0 +1,4 @@
+class: MyBooking
+fields:
+  booking: Booking
+  space: Space

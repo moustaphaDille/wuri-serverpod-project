@@ -1,0 +1,41 @@
+admin:
+  - claimAdmin:
+  - listApplications:
+  - reviewApplication:
+  - listUsers:
+  - setClientBlocked:
+emailIdp:
+  - login:
+  - startRegistration:
+  - verifyRegistrationCode:
+  - finishRegistration:
+  - startPasswordReset:
+  - verifyPasswordResetCode:
+  - finishPasswordReset:
+  - hasAccount:
+jwtRefresh:
+  - refreshAccessToken:
+booking:
+  - createBooking:
+  - listMyBookings:
+  - cancelBooking:
+hostBooking:
+  - listRequests:
+  - respondToBooking:
+greeting:
+  - hello:
+partner:
+  - getMyApplication:
+  - submitApplication:
+profile:
+  - getMyProfile:
+  - createMyProfile:
+  - updateMyProfile:
+hostSpace:
+  - getSpaceImageUploadDescription:
+  - verifySpaceImageUpload:
+  - listMySpaces:
+  - createSpace:
+space:
+  - listSpaces:
+  - getSpace:

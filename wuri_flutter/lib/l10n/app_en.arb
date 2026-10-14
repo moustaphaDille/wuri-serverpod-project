@@ -1,0 +1,239 @@
+{
+  "@@locale": "en",
+  "appName": "Wuri",
+  "tagline": "Book your space in Niger",
+  "searchHint": "Where to in Niger?",
+  "navSearch": "Search",
+  "navFavorites": "Favorites",
+  "navBookings": "Bookings",
+  "navNotifications": "Notifications",
+  "navProfile": "Profile",
+  "navMySpaces": "My spaces",
+  "navRequests": "Requests",
+  "typeAll": "All",
+  "typeHotel": "Hotel",
+  "typeStay": "Stay",
+  "typeWorkspace": "Workspace",
+  "perNight": "{price} FCFA / night",
+  "@perNight": {
+    "placeholders": { "price": { "type": "String" } }
+  },
+  "maxGuests": "Up to {count} guests",
+  "@maxGuests": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "descriptionTitle": "Description",
+  "bookThisSpace": "Book this space",
+  "noSpacesFound": "No spaces match your search.",
+  "errorLoading": "Could not load the spaces.",
+  "retry": "Try again",
+  "cancel": "Cancel",
+  "spaceNotFound": "This space is not available.",
+  "profileGuestTitle": "Create an account to book",
+  "profileGuestBody": "Save your favorites and follow your bookings. It only takes a minute.",
+  "createAccount": "Create account",
+  "logIn": "Log in",
+  "signInTitle": "Sign in",
+  "registerTitle": "Create your account",
+  "registerBody": "Enter your email and choose a password. We will send you a code to verify your email.",
+  "registerSubtitle": "We will send a code to verify your email.",
+  "stepLabel": "Step {current} of {total}",
+  "@stepLabel": {
+    "placeholders": {
+      "current": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "emailLabel": "Email",
+  "emailHint": "you@example.com",
+  "passwordLabel": "Password",
+  "passwordHelper": "At least 8 characters",
+  "confirmPasswordLabel": "Confirm password",
+  "invalidEmail": "Enter a valid email address",
+  "passwordTooShort": "Use at least 8 characters",
+  "passwordsDontMatch": "The passwords do not match",
+  "sendCode": "Send me a code",
+  "verifyTitle": "Verify your email",
+  "verifyBody": "We sent a code to {email}. Enter it below.",
+  "@verifyBody": {
+    "placeholders": { "email": { "type": "String" } }
+  },
+  "codeLabel": "Verification code",
+  "verifyAndCreate": "Verify and create my account",
+  "resendCode": "Resend the code",
+  "codeResent": "Code sent again.",
+  "changeEmail": "Change email",
+  "haveAccount": "Already have an account?",
+  "noAccount": "No account yet?",
+  "loginTitle": "Log in",
+  "loginBody": "Welcome back. Enter your email and password.",
+  "loginHeadline": "Welcome back",
+  "loginSubtitle": "Log in to book your next stay.",
+  "loginFailed": "Incorrect email or password.",
+  "forgotPassword": "Forgot password?",
+  "resetPasswordTitle": "Reset your password",
+  "resetPasswordSubtitle": "Enter your email to receive a code.",
+  "verifyResetTitle": "Verify the code",
+  "newPasswordTitle": "New password",
+  "newPasswordSubtitle": "Choose a new password.",
+  "sendResetCode": "Send code",
+  "verifyCode": "Verify code",
+  "resetPassword": "Reset password",
+  "completeProfileTitle": "Complete your profile",
+  "completeProfileBody": "We need a few details so hosts know who is booking.",
+  "partnerOwnerBody": "Your details as the owner. Next, you will describe your business.",
+  "firstName": "First name",
+  "lastName": "Last name",
+  "phone": "Phone number",
+  "phoneHint": "+227 90 00 00 00",
+  "continueLabel": "Continue",
+  "fieldRequired": "This field is required",
+  "invalidPhone": "Enter a valid phone number",
+  "profileMissing": "Your profile is not complete yet.",
+  "signOut": "Sign out",
+  "comingSoon": "Coming soon",
+  "genericError": "Something went wrong. Please try again.",
+  "hostSpacesTitle": "My spaces",
+  "addSpace": "Add a space",
+  "noHostSpaces": "You have not published any space yet.",
+  "spaceName": "Name",
+  "spaceTypeLabel": "Type",
+  "cityLabel": "City",
+  "pricePerNightLabel": "Price per night (FCFA)",
+  "maxGuestsLabel": "Maximum guests",
+  "descriptionLabel": "Description",
+  "locationLabel": "Exact location",
+  "locationHelp": "Choose a region, then tap the map at the exact location of the space.",
+  "photoUrlLabel": "Space image (required)",
+  "photoUrlHelp": "Paste a direct link to at least one image.",
+  "invalidNumber": "Enter a number greater than 0",
+  "invalidLink": "Enter a valid link starting with http",
+  "publishSpace": "Publish space",
+  "spacePublished": "Space published.",
+  "bookingTitle": "Your dates",
+  "checkIn": "Check-in",
+  "checkOut": "Check-out",
+  "selectDates": "Select your dates",
+  "guestsLabel": "Guests",
+  "nightsCount": "{count, plural, =1{1 night} other{{count} nights}}",
+  "@nightsCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "guestsCount": "{count, plural, =1{1 guest} other{{count} guests}}",
+  "@guestsCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "totalLabel": "Total",
+  "totalPrice": "{price} FCFA",
+  "@totalPrice": {
+    "placeholders": { "price": { "type": "String" } }
+  },
+  "continueToPayment": "Continue to payment",
+  "datesRequired": "Choose your check-in and check-out dates.",
+  "paymentTitle": "Payment",
+  "payAtProperty": "Pay at the property",
+  "availableNow": "Available now",
+  "mobileMoney": "Mobile Money",
+  "card": "Card",
+  "noMoneyTaken": "No money is taken in this prototype. You pay the host directly at the property.",
+  "confirmRequest": "Confirm request",
+  "requestSent": "Request sent. The host will reply soon.",
+  "statusPending": "Pending",
+  "statusAccepted": "Accepted",
+  "statusDeclined": "Declined",
+  "statusCancelled": "Cancelled",
+  "myBookingsTitle": "My bookings",
+  "noBookings": "You have no bookings yet.",
+  "cancelBooking": "Cancel booking",
+  "cancelConfirmTitle": "Cancel this booking?",
+  "cancelConfirmBody": "This cannot be undone.",
+  "keepBooking": "Keep it",
+  "bookingCancelled": "Booking cancelled.",
+  "notificationsTitle": "Notifications",
+  "noNotifications": "No notifications yet.",
+  "notifAccepted": "Good news! Your request for {space} was accepted.",
+  "@notifAccepted": {
+    "placeholders": { "space": { "type": "String" } }
+  },
+  "notifDeclined": "Your request for {space} was declined.",
+  "@notifDeclined": {
+    "placeholders": { "space": { "type": "String" } }
+  },
+  "notifCancelled": "You cancelled your booking for {space}.",
+  "@notifCancelled": {
+    "placeholders": { "space": { "type": "String" } }
+  },
+  "hostRequestsTitle": "Booking requests",
+  "noRequests": "No booking requests yet.",
+  "accept": "Accept",
+  "decline": "Decline",
+  "requestAccepted": "Request accepted.",
+  "requestDeclined": "Request declined.",
+  "favoritesTitle": "Favorites",
+  "noFavorites": "No favorites yet.",
+  "noFavoritesBody": "Tap the heart on a space to save it here.",
+  "addFavorite": "Add to favorites",
+  "removeFavorite": "Remove from favorites",
+  "viewList": "List",
+  "viewMap": "Map",
+  "chooseRoleTitle": "How will you use Wuri?",
+  "chooseRoleBody": "Your email is verified. Choose your profile.",
+  "roleClientTitle": "I am looking for a space",
+  "roleClientBody": "Browse and book hotels, residences and workspaces.",
+  "rolePartnerTitle": "I own a space",
+  "rolePartnerBody": "Publish your space. Your account is verified before you can publish.",
+  "roleClient": "Client",
+  "rolePartner": "Partner",
+  "roleAdmin": "Administrator",
+  "businessTitle": "Your business",
+  "businessBody": "Tell us about your business. The Wuri team verifies it before you can publish.",
+  "businessName": "Business name",
+  "addressLabel": "Address",
+  "registrationNumber": "RCCM / NIF number",
+  "sendForVerification": "Send for verification",
+  "applicationSent": "Application sent. We will review it soon.",
+  "verificationTitle": "Verification",
+  "verificationNeeded": "Describe your business so we can verify your account.",
+  "verificationPending": "We are checking your information. You will be able to publish your space once it is approved.",
+  "verificationApproved": "Your account is verified. You can publish your spaces.",
+  "verificationRejected": "Your application was not approved.",
+  "rejectionReason": "Reason: {reason}",
+  "@rejectionReason": {
+    "placeholders": { "reason": { "type": "String" } }
+  },
+  "spacesLockedTitle": "Publishing is locked",
+  "spacesLockedBody": "You will be able to add spaces once your account is verified.",
+  "partnerRequestsTitle": "Partner requests",
+  "noPartnerRequests": "No pending partner requests.",
+  "ownerLabel": "Owner: {name}",
+  "@ownerLabel": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "approve": "Approve",
+  "reject": "Reject",
+  "rejectDialogTitle": "Reject this application?",
+  "rejectReasonHint": "Reason (optional)",
+  "applicationApproved": "Partner approved.",
+  "applicationRejected": "Partner rejected.",
+  "onlyClientsCanBook": "Only client accounts can book a space."
+  ,"profileInformation": "My information"
+  ,"viewAllInformation": "View all account information"
+  ,"editProfile": "Edit profile"
+  ,"changePassword": "Change password"
+  ,"changePasswordTitle": "Change your password"
+  ,"settings": "Settings"
+  ,"accountType": "Account type"
+  ,"languageLabel": "Language"
+  ,"memberSince": "Member since"
+  ,"loadingLabel": "Loading..."
+  ,"saveChanges": "Save changes"
+  ,"usersTitle": "Users"
+  ,"noUsers": "No users."
+  ,"accountActive": "Active account"
+  ,"accountInactive": "Account disabled"
+  ,"activateAccount": "Activate"
+  ,"deactivateAccount": "Deactivate"
+  ,"userActivated": "Account activated."
+  ,"userDeactivated": "Account disabled."
+  ,"partnerAccountManagedByVerification": "Managed by partner verification"
+}

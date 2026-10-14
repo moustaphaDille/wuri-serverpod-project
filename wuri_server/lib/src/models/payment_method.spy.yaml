@@ -1,0 +1,4 @@
+enum: PaymentMethod
+serialized: byName
+values:
+  - payAtProperty

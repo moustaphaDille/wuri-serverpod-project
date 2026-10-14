@@ -1,0 +1,6 @@
+enum: ApplicationStatus
+serialized: byName
+values:
+  - pending
+  - approved
+  - rejected

@@ -1,0 +1,80 @@
+# Files and directories created by pub
+.dart_tool/
+.packages
+
+# Pubspec overrides
+pubspec_overrides.yaml
+
+# Agents and local tool configuration
+.dart_skills/
+.agents/
+.claude/
+.gemini/
+.cursor/
+.vscode/mcp.json
+.codex/
+.mcp.json
+
+# Serverpod Cloud CLI
+.scloud/
+
+# Serverpod secrets
+wuri_server/config/passwords.yaml
+wuri_server/lib/src/config/passwords.yaml
+**/passwords.yaml
+
+# Environment files and local overrides
+.env
+.env.*
+!.env.example
+*.local
+*.local.*
+
+# Credentials, private keys, certificates and signing material
+**/google_client_secret.json
+**/google-services.json
+**/GoogleService-Info.plist
+**/firebase_service_account_key.json
+**/service-account*.json
+**/*service-account*.json
+**/*secret*.json
+**/*token*.json
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*.jks
+**/*.keystore
+**/key.properties
+**/*.secret
+**/*.credentials
+**/*credentials*.json
+**/secrets/
+.firebase/
+**/.firebase/
+
+# Local databases and Serverpod runtime data
+.serverpod/
+**/.serverpod/
+**/*.db
+**/*.db-*
+**/*.sqlite
+**/*.sqlite3
+**/sp_*.db*
+
+# Build outputs and generated web bundles
+build/
+**/build/
+wuri_server/web/app/
+
+# Logs and crash reports
+*.log
+hs_err_pid*.log
+replay_pid*.log
+coverage/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

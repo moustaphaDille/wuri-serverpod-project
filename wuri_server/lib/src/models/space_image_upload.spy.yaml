@@ -1,0 +1,4 @@
+class: SpaceImageUpload
+fields:
+  path: String
+  uploadDescription: String

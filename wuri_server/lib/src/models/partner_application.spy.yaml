@@ -1,0 +1,18 @@
+class: PartnerApplication
+table: partner_application
+fields:
+  appUserId: int, relation(parent=app_user, onDelete=Cascade)
+  businessName: String
+  businessType: SpaceType
+  city: String
+  address: String
+  registrationNumber: String
+  documentPath: String?
+  status: ApplicationStatus
+  rejectionReason: String?
+  createdAt: DateTime
+  reviewedAt: DateTime?
+indexes:
+  partner_application_user_idx:
+    fields: appUserId
+    unique: true

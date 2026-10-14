@@ -1,0 +1,6 @@
+class: AdminApplication
+fields:
+  application: PartnerApplication
+  ownerFirstName: String
+  ownerLastName: String
+  ownerPhone: String

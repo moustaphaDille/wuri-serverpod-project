@@ -1,0 +1,16 @@
+class: Space
+table: space
+fields:
+  ownerId: int, relation(parent=app_user)
+  name: String
+  type: SpaceType
+  description: String
+  city: String
+  latitude: double
+  longitude: double
+  pricePerNight: int
+  currency: String
+  maxGuests: int
+  photoUrls: List<String>
+  isActive: bool
+  createdAt: DateTime

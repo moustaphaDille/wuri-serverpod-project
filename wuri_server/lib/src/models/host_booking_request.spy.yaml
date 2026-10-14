@@ -1,0 +1,6 @@
+class: HostBookingRequest
+fields:
+  booking: Booking
+  spaceName: String
+  guestFirstName: String
+  guestLastName: String
