@@ -10,10 +10,16 @@ import 'package:wuri_flutter/widgets/space_image.dart';
 
 /// Une carte d'espace : grande photo arrondie, puis nom, ville et prix.
 class SpaceCard extends StatelessWidget {
-  const SpaceCard({super.key, required this.space, required this.onTap});
+  const SpaceCard({
+    super.key,
+    required this.space,
+    required this.onTap,
+    this.onBook,
+  });
 
   final Space space;
   final VoidCallback onTap;
+  final VoidCallback? onBook;
 
   @override
   Widget build(BuildContext context) {
@@ -120,6 +126,17 @@ class SpaceCard extends StatelessWidget {
                 ],
               ),
             ),
+            if (onBook != null) ...[
+              const SizedBox(height: 12),
+              SizedBox(
+                width: double.infinity,
+                height: 44,
+                child: FilledButton(
+                  onPressed: onBook,
+                  child: Text(l10n.bookThisSpace),
+                ),
+              ),
+            ],
           ],
         ),
       ),

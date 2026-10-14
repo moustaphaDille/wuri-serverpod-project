@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:wuri_client/wuri_client.dart';
 
 import 'package:wuri_flutter/l10n/app_localizations.dart';
+import 'package:wuri_flutter/providers/auth_providers.dart';
 import 'package:wuri_flutter/providers/space_providers.dart';
 import 'package:wuri_flutter/providers/locale_provider.dart';
 import 'package:wuri_flutter/theme/app_theme.dart';
@@ -14,6 +15,7 @@ import 'package:wuri_flutter/widgets/empty_state.dart';
 import 'package:wuri_flutter/widgets/skeleton.dart';
 import 'package:wuri_flutter/widgets/space_card.dart';
 import 'package:wuri_flutter/widgets/spaces_map.dart';
+import 'package:wuri_flutter/utils/snackbar.dart';
 
 class ExploreScreen extends ConsumerStatefulWidget {
   const ExploreScreen({super.key});
@@ -35,6 +37,9 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final signedIn = ref.watch(signedInProvider);
+    final profile = ref.watch(profileProvider);
+    final canBook = !signedIn || profile.asData?.value?.role == UserRole.client;
     final filter = ref.watch(spaceFilterProvider);
     final spaces = ref.watch(spacesProvider);
     final notifier = ref.read(spaceFilterProvider.notifier);
@@ -42,8 +47,8 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     final sidePadding = screenWidth >= 1240
         ? (screenWidth - 1200) / 2
         : screenWidth >= 800
-            ? 32.0
-            : 20.0;
+        ? 32.0
+        : 20.0;
 
     return SafeArea(
       child: Column(
@@ -163,7 +168,12 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                 // La carte s'affiche toujours, même sans espace.
                 if (_showMap) {
                   return Padding(
-                    padding: EdgeInsets.fromLTRB(sidePadding, 0, sidePadding, 20),
+                    padding: EdgeInsets.fromLTRB(
+                      sidePadding,
+                      0,
+                      sidePadding,
+                      20,
+                    ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Stack(
@@ -212,59 +222,72 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                             ),
                           ],
                         )
-                      
-: LayoutBuilder(
-    builder: (context, constraints) {
-      final width = constraints.maxWidth;
-      final crossAxisCount = width >= 1200
-          ? 4
-          : width >= 800
-              ? 3
-              : width >= 520
-                  ? 2
-                  : 1;
+                      : LayoutBuilder(
+                          builder: (context, constraints) {
+                            final width = constraints.maxWidth;
+                            final crossAxisCount = width >= 1200
+                                ? 4
+                                : width >= 800
+                                ? 3
+                                : width >= 520
+                                ? 2
+                                : 1;
 
-      if (crossAxisCount == 1) {
-        return ListView.separated(
-          padding: EdgeInsets.fromLTRB(
-            sidePadding,
-            0,
-            sidePadding,
-            24,
-          ),
-          itemCount: list.length,
-          separatorBuilder: (_, _) => const SizedBox(height: 24),
-          itemBuilder: (context, index) {
-            final space = list[index];
-            return SpaceCard(
-              space: space,
-              onTap: () => context.push('/space/${space.id}'),
-            );
-          },
-        );
-      }
+                            if (crossAxisCount == 1) {
+                              return ListView.separated(
+                                padding: EdgeInsets.fromLTRB(
+                                  sidePadding,
+                                  0,
+                                  sidePadding,
+                                  24,
+                                ),
+                                itemCount: list.length,
+                                separatorBuilder: (_, _) =>
+                                    const SizedBox(height: 24),
+                                itemBuilder: (context, index) {
+                                  final space = list[index];
+                                  return SpaceCard(
+                                    space: space,
+                                    onTap: () =>
+                                        context.push('/space/${space.id}'),
+                                    onBook: canBook
+                                        ? () => _onBook(context, space.id!)
+                                        : null,
+                                  );
+                                },
+                              );
+                            }
 
-      return GridView.builder(
-        padding: EdgeInsets.fromLTRB(sidePadding, 0, sidePadding, 24),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: crossAxisCount,
-          crossAxisSpacing: 24,
-          mainAxisSpacing: 28,
-          // Espace vertical suffisant pour la photo, le nom, la ville et le prix.
-          mainAxisExtent: 290,
-        ),
-        itemCount: list.length,
-        itemBuilder: (context, index) {
-          final space = list[index];
-          return SpaceCard(
-            space: space,
-            onTap: () => context.push('/space/${space.id}'),
-          );
-        },
-      );
-    },
-  ),
-
+                            return GridView.builder(
+                              padding: EdgeInsets.fromLTRB(
+                                sidePadding,
+                                0,
+                                sidePadding,
+                                24,
+                              ),
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: crossAxisCount,
+                                    crossAxisSpacing: 24,
+                                    mainAxisSpacing: 28,
+                                    // Espace vertical suffisant pour la photo, le nom, la ville et le prix.
+                                    mainAxisExtent: 330,
+                                  ),
+                              itemCount: list.length,
+                              itemBuilder: (context, index) {
+                                final space = list[index];
+                                return SpaceCard(
+                                  space: space,
+                                  onTap: () =>
+                                      context.push('/space/${space.id}'),
+                                  onBook: canBook
+                                      ? () => _onBook(context, space.id!)
+                                      : null,
+                                );
+                              },
+                            );
+                          },
+                        ),
                 );
               },
             ),
@@ -272,6 +295,32 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
         ],
       ),
     );
+  }
+
+  Future<void> _onBook(BuildContext context, int spaceId) async {
+    final l10n = AppLocalizations.of(context)!;
+    final target = '/space/$spaceId/book';
+    final encoded = Uri.encodeComponent(target);
+
+    if (!ref.read(signedInProvider)) {
+      context.push('/sign-in?redirect=$encoded');
+      return;
+    }
+
+    final profile = await ref.read(profileProvider.future);
+    if (!context.mounted) return;
+
+    if (profile == null) {
+      context.push('/choose-role?redirect=$encoded');
+      return;
+    }
+
+    if (profile.role != UserRole.client) {
+      showAppSnackBar(context, l10n.onlyClientsCanBook);
+      return;
+    }
+
+    context.push(target);
   }
 }
 
